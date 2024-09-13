@@ -11,8 +11,8 @@ class Program
 
     static void Main()
     {
-        string filePath = "input.csv"; // Default to CSV file
-        fileHandler = new CsvFileHandler(); // Default to CSV handler
+        string filePath = "Files/input.json"; // Default to CSV file
+        fileHandler = new JsonFileHandler(); // Default to CSV handler
         characters = fileHandler.ReadCharacters(filePath);
 
         while (true)
@@ -56,9 +56,8 @@ class Program
 
     static void AddCharacter()
     {
-        // TODO: Implement logic to add a new character
-        // Prompt for character details (name, class, level, hit points, equipment)
-        // Add the new character to the characters list
+        // logic to add a new character
+        characters.Add(Character.CreateCharacter());
     }
 
     static void LevelUpCharacter()
@@ -69,9 +68,8 @@ class Program
         var character = characters.Find(c => c.Name.Equals(nameToLevelUp, StringComparison.OrdinalIgnoreCase));
         if (character != null)
         {
-            // TODO: Implement logic to level up the character
-            // character.Level++;
-            // Console.WriteLine($"Character {character.Name} leveled up to level {character.Level}!");
+            // logic to level up the character
+            character.LevelUp();
         }
         else
         {
